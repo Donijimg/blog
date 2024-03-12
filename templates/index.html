@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-<h3>lista desordenada{{posts|length}}</h3>
+{% comment %} <h3>lista desordenada{{posts|length}}</h3> {% endcomment %}
 {% comment %} <ul>
 {% for post in posts %}
 <li> {{post.titulo}}</li>
@@ -21,10 +21,24 @@
 <h3>consultar un unico registro</h3>
 {{ post.fecha }} - {{ post.titulo }} {% endcomment %}
 
-<h3>limite de la consulta {{limite|length}}</h3>
+{% comment %} <h3>limite de la consulta {{limite|length}}</h3>
 <ul>
 {% for post in limite %}
-<li> {{post.titulo}}</li>
+<li> {{post.id}}</li>
+{% endfor %}
+</ul> {% endcomment %}
+{% comment %} 
+<h3>order_by {{order|length}}</h3>
+<ul>
+{% for post in order %}
+<li> {{post.cuerpo}}</li>
+{% endfor %}
+</ul> {% endcomment %}
+
+<h3>menor {{menor|length}}</h3>
+<ul>
+{% for post in menor %}
+<li> {{post.id}}</li>
 {% endfor %}
 </ul>
 

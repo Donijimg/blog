@@ -44,10 +44,17 @@ def consultas (request):
   filtro=Post.objects.filter(titulo='titulo')
 #  return HttpResponse("consultas")
   
-  limite=Post.objects.all()[:20]
+  limite=Post.objects.all()[0:4]
+
+  order=Post.objects.all().order_by('cuerpo')[:20]  #-cuerpo
+
+  menor=Post.objects.filter(id__lte=20)
+
   return render(request, "index.html",{
     'posts':posts,
     'filtro':filtro,
     'post':post,
-    'limite':limite
+    'limite':limite,
+    'order': order,
+    'menor':menor
   })
