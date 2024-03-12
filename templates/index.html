@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h3>lista desordenada{{posts|length}}</h3>
+{% comment %} <ul>
+{% for post in posts %}
+<li> {{post.titulo}}</li>
+{% endfor %}
+</ul>
+<ul>
+{% for post in filtro %}
+<li> {{post.titulo}}</li>
+{% endfor %}
+</ul>
+<h3>consultar un unico registro</h3>
+{{ post.fecha }} - {{ post.titulo }} {% endcomment %}
+
+<h3>limite de la consulta {{limite|length}}</h3>
+<ul>
+{% for post in limite %}
+<li> {{post.titulo}}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

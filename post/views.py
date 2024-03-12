@@ -21,10 +21,11 @@ def storage(request, titulo, cuerpo, nombre,correo):
   
 def consultar(requets,id):
   post= Post.objects.get(id=id)
-  autor= Autor.objects.get(id=id)
+#  autor= Autor.objects.get(id=id)
   print (post)
-  print (autor)
+#  print (autor)
   return HttpResponse (f"titulo: {post.titulo}, cuerpo:{post.cuerpo}, fecha: {post.fecha}")
+
 
 def modificar(request, titulo,id):
   post=Post.objects.get(id=id)
@@ -36,3 +37,17 @@ def eliminar(request,id):
   post=Post.objects.get(id=id)
   post.delete()
   return HttpResponse("post eliminado")
+
+def consultas (request):
+  posts=Post.objects.all()
+  post=Post.objects.get(id= 12)
+  filtro=Post.objects.filter(titulo='titulo')
+#  return HttpResponse("consultas")
+  
+  limite=Post.objects.all()[:20]
+  return render(request, "index.html",{
+    'posts':posts,
+    'filtro':filtro,
+    'post':post,
+    'limite':limite
+  })
